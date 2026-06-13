@@ -1,19 +1,31 @@
 spring:
-  profiles:
-    active: dev
   application:
     name: restaurant-api
-
-restaurant:
-  name: "The Spring Bistro"
-  version: 1.0.0
-  motto: "Auto configured deliciousness since 2014"
-  max-tables-per-order: 6
-  security:
-    jwt-secret: "CHANGE-ME-THIS-IS-A-DEMO-SECRET-KEY-256BIT"
-    jwt-expiration-minutes: 60
-
-
+  datasource:
+    url: jdbc:h2:mem:restaurant;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
 server:
   port: 8081
+
+restaurant:
+  name: "The Spring Bistro"
+  version: "1.0.0"                                      # Matches: @NotBlank String version
+  motto: "Auto configured deliciousness since 2014"     # Matches: @NotBlank String motto
+  maxTablesPerOrder: 6                                  # Matches: int maxTablesPerOrder (camelCase)
+  security:                                             # Matches: Security security
+    jwtSecret: "CHANGE-ME-THIS-IS-A-DEMO-SECRET-KEY-256BIT" # Matches: String jwtSecret (Must be >= 32 chars)
+    jwtExpirationMinutes: 60                            # Matches: long jwtExpirationMinutes

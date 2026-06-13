@@ -1,9 +1,8 @@
-restaurant:
-  name: "The Spring Bistro"
-  version: 1.0.0
-  motto: "Auto configured deliciousness since 2014"
-
-
-
-server:
-  port: 8081 # http://localhost:8081/
+#restaurant:
+#  name: "The Spring Bistro"
+#  version: 1.0.0
+#  motto: "Auto configured deliciousness since 2014"
+#
+#
+#server:
+#  port: 8081 # http://localhost:8081/
