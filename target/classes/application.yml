@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: restaurant-api
+
+restaurant:
+  name: "The Spring Bistro"
+  version: 1.0.0
+  motto: "Auto configured deliciousness since 2014"
+  max-tables-per-order: 6
+  security:
+    jwt-secret: "CHANGE-ME-THIS-IS-A-DEMO-SECRET-KEY-256BIT"
+    jwt-expiration-minutes: 60
+
+
+
+server:
+  port: 8081
