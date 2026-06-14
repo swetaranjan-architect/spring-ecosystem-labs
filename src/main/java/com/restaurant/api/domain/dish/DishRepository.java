@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 
@@ -22,7 +23,8 @@ public interface DishRepository extends JpaRepository<Dish,Long> {
     List<Dish> cheaperThanNative(int max);
 
     @Modifying
-    @Query("update dish d set d.priceCents = d.priceCents + :bump where d.id = :id")
+    @Transactional
+    @Query("update Dish d set d.priceCents = d.priceCents + :bump where d.id = :id")
     int raisePrice(@Param("id") Long id, @Param("bump" ) int bump);
 
     interface DishView {
